@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10050f">
+<title>SOZZ ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: white;
+  overflow-x: hidden;
+  background: radial-gradient(ellipse at top, #551333, #10050f 75%);
+}
+
+#lockscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background: linear-gradient(145deg, #10050f, #48102e);
+}
+
+.lock-heart {
+  font-size: 75px;
+  animation: pulse 1.5s infinite;
+}
+
+h1 {
+  color: #ff85b8;
+  font-size: 48px;
+  margin: 15px 0;
+}
+
+p {
+  line-height: 1.8;
+  color: #f5c8dd;
+}
+
+input {
+  width: 220px;
+  max-width: 100%;
+  padding: 15px;
+  margin: 15px 0;
+  border: 1px solid #ff6ca9;
+  border-radius: 12px;
+  background: #210719;
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 8px;
+}
+
+button {
+  width: 100%;
+  max-width: 320px;
+  padding: 15px;
+  margin: 8px auto;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(100deg, #ff367e, #ff82b8);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+button:hover {
+  box-shadow: 0 0 20px #ff367e66;
+}
+
+.secondary {
+  background: #ffffff12;
+  border: 1px solid #ff82b855;
+}
+
+#error {
+  color: #ff8baa;
+  min-height: 24px;
+}
+
+#loveContent {
+  display: none;
+  position: relative;
+  z-index: 1;
+  padding: 30px 0;
+}
+
+main {
+  width: 90%;
+  max-width: 450px;
+  margin: auto;
+}
+
+.tag {
+  color: #ffb6d5;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+.big-heart {
+  font-size: 85px;
+  margin-top: 25px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+.card {
+  padding: 24px 18px;
+  margin: 22px 0;
+  border: 1px solid #ff83b744;
+  border-radius: 22px;
+  background: #ffffff0b;
+  box-shadow: 0 8px 30px #00000020;
+}
+
+.card h2 {
+  color: #ff91bc;
+}
+
+.card p {
+  font-size: 15px;
+}
+
+#letter,
+#surprise {
+  display: none;
+}
+
+#surprise {
+  color: #ff9bc4;
+  font-size: 23px;
+  margin-top: 20px;
+}
+
+#hearts {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.heart {
+  position: absolute;
+  bottom: -40px;
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.footer {
+  font-size: 12px;
+  color: #c79bb3;
+  margin-top: 30px;
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: 38px;
+  }
+
+  .big-heart {
+    font-size: 70px;
+  }
+
+  .card {
+    padding: 20px 14px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD SCREEN -->
+<div id="lockscreen">
+  <div class="lock-heart">🔐</div>
+
+  <h1>For You ❤️</h1>
+
+  <p>A little secret is waiting for you...</p>
+
+  <input
+    id="password"
+    type="password"
+    inputmode="numeric"
+    maxlength="4"
+    placeholder="••••"
+    autocomplete="off"
+    aria-label="Enter password"
+  >
+
+  <button id="unlockBtn" type="button">
+    Unlock My Heart 💗
+  </button>
+
+  <p id="error" role="status"></p>
+
+  <p style="font-size:12px">
+    Hint: Your four-digit secret 💌
+  </p>
+</div>
+
+<!-- LOVE WEBSITE -->
+<div id="loveContent">
+  <main>
+
+    <div class="tag">
+      A LITTLE PIECE OF MY HEART
+    </div>
+
+    <div class="big-heart">❤️</div>
+
+    <!-- CHANGED FROM L TO SOZZ -->
+    <h1>SOZZ</h1>
+
+    <p>
+      In a world full of people, there's someone
+      who makes everything feel more beautiful.
+    </p>
+
+    <section class="card">
+      <h2>💌 A Little Message</h2>
+
+      <p>
+        This page is a little place filled with love,
+        sweet memories, and words that can be difficult
+        to say out loud.
+      </p>
+
+      <button id="letterBtn" type="button">
+        Open Your Secret Letter 💗
+      </button>
+
+      <button class="secondary" id="heartsBtn" type="button">
+        Send Some Hearts 💕
+      </button>
+    </section>
+
+    <section class="card" id="letter">
+      <h2>Dear You, 💖</h2>
+
+      <p>
+        I may not always find the perfect words,
+        but I hope you know how special you are.
+        You deserve happiness, genuine smiles,
+        and someone who appreciates the little things
+        about you.
+
+        <br><br>
+
+        If I could give you one thing, it would be
+        the chance to see yourself through my eyes.
+        Then you would understand how much you mean
+        to me.
+
+        <br><br>
+
+        Keep smiling, keep shining, and never forget
+        that you matter. ❤️
+      </p>
+
+      <button id="surpriseBtn" type="button">
+        One Last Surprise 🎁
+      </button>
+
+      <div id="surprise">
+        💖 YOU ARE SPECIAL 💖
+
+        <p>
+          Some feelings are too beautiful for words. ♾️
+        </p>
+      </div>
+    </section>
+
+    <p class="footer">
+      MADE WITH ❤️ JUST FOR YOU — SOZZ
+    </p>
+
+  </main>
+</div>
+
+<!-- FLOATING HEARTS -->
+<div id="hearts"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  const correctPassword = "1411";
+
+  const lockscreen = document.getElementById("lockscreen");
+  const loveContent = document.getElementById("loveContent");
+  const passwordInput = document.getElementById("password");
+  const error = document.getElementById("error");
+  const heartsBox = document.getElementById("hearts");
+
+  let unlocked = false;
+  let heartInterval = null;
+
+  function createHeart() {
+    const heart = document.createElement("span");
+    heart.className = "heart";
+
+    const symbols = ["❤️", "💕", "💗", "💖", "♡"];
+
+    heart.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (16 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+    heartsBox.appendChild(heart);
+
+    setTimeout(function () {
+      heart.remove();
+    }, 8500);
+  }
+
+  function makeHearts() {
+    for (let i = 0; i < 20; i++) {
+      setTimeout(createHeart, i * 100);
+    }
+  }
+
+  function unlock() {
+    if (unlocked) return;
+
+    if (passwordInput.value === correctPassword) {
+      unlocked = true;
+
+      lockscreen.style.display = "none";
+      loveContent.style.display = "block";
+      error.textContent = "";
+
+      makeHearts();
+
+      if (!heartInterval) {
+        heartInterval = setInterval(createHeart, 700);
+      }
+    } else {
+      error.textContent = "Wrong password 💔 Try again!";
+      passwordInput.value = "";
+      passwordInput.focus();
+    }
+  }
+
+  document.getElementById("unlockBtn")
+    .addEventListener("click", unlock);
+
+  passwordInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      unlock();
+    }
+  });
+
+  document.getElementById("letterBtn")
+    .addEventListener("click", function () {
+      const letter = document.getElementById("letter");
+
+      letter.style.display = "block";
+
+      letter.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+      makeHearts();
+    });
+
+  document.getElementById("heartsBtn")
+    .addEventListener("click", makeHearts);
+
+  document.getElementById("surpriseBtn")
+    .addEventListener("click", function () {
+      const surprise = document.getElementById("surprise");
+
+      surprise.style.display = "block";
+
+      makeHearts();
+
+      surprise.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    });
+
+})();
+</script>
+
+</body>
+  </html>
